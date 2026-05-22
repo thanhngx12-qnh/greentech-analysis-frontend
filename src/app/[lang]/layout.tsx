@@ -28,7 +28,6 @@ export const metadata: Metadata = {
   description: "High-Tech Minimalist Data Analysis & Consulting Platform",
 };
 
-// Đã cập nhật params thành Promise theo chuẩn Next 15+
 export default async function RootLayout({
   children,
   params,
@@ -36,7 +35,6 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ lang: Locale }>;
 }) {
-  // Await params để unwrap dữ liệu
   const resolvedParams = await params;
 
   return (
@@ -53,7 +51,8 @@ export default async function RootLayout({
       <body className="antialiased selection:bg-primary-container selection:text-on-background min-h-screen flex flex-col">
         <CursorAurora />
         <Header lang={resolvedParams.lang} />
-        <main className="flex-1 pt-stack-lg max-w-container-max mx-auto px-margin-desktop pb-stack-lg flex flex-col gap-stack-lg w-full">
+        {/* FIX: Thêm Responsive Padding (px-margin-mobile md:px-margin-desktop) và Stack (pt-stack-md md:pt-stack-lg) */}
+        <main className="flex-1 pt-24 md:pt-stack-lg max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-stack-md md:pb-stack-lg flex flex-col gap-stack-md md:gap-stack-lg w-full overflow-x-hidden">
           {children}
         </main>
         <Footer lang={resolvedParams.lang} />

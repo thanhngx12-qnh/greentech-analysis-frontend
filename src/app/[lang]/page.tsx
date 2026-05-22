@@ -1,14 +1,36 @@
 // File: src/app/[lang]/page.tsx
-export default function HomePage() {
+import { homeApi } from "@/lib/api";
+import HeroSlider from "@/components/home/HeroSlider";
+import FeaturedServices from "@/components/home/FeaturedServices";
+import LatestNews from "@/components/home/LatestNews";
+import { Locale } from "@/i18n-config";
+
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ lang: Locale }>;
+}) {
+  const resolvedParams = await params;
+  const { lang } = resolvedParams;
+
+  // Fetch dữ liệu song song (Parallel Data Fetching) trên Server Component
+  // Nếu 1 API lỗi, bắt catch([]) để tránh làm sập toàn bộ trang chủ
+  const [sliders, services, news] = await Promise.all([
+    homeApi.getSliders(lang).catch(() => []),
+    homeApi.getFeaturedServices(lang).catch(() => []),
+    homeApi.getLatestNews(lang).catch(() => []),
+  ]);
+
   return (
-    <section className="flex flex-col items-center justify-center min-h-[50vh] gap-6 text-center">
-      <h1 className="font-display-xl text-display-xl text-on-background">
-        Luminous Precision.
-      </h1>
-      <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-        Scaffolding hoàn tất. Hệ thống màu sắc, typography và layout đã sẵn sàng
-        hoạt động.
-      </p>
-    </section>
+    <>
+      {/* Component 1: Hero Banner Slider */}
+      <HeroSlider sliders={sliders} lang={lang} />
+
+      {/* Component 2: Danh sách Dịch vụ nổi bật */}
+      <FeaturedServices services={services} lang={lang} />
+
+      {/* Component 3: Tin tức mới nhất */}
+      <LatestNews news={news} lang={lang} />
+    </>
   );
 }

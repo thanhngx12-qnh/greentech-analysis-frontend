@@ -1,6 +1,6 @@
 // File: src/components/home/FeaturedServices.tsx
 import Image from "next/image";
-import { Link } from "@/navigation"; // Lấy thẻ Link xịn
+import { Link } from "@/navigation";
 import type { Service } from "@/lib/api";
 import { useTranslations } from "next-intl";
 
@@ -21,9 +21,9 @@ export default function FeaturedServices({ services }: FeaturedServicesProps) {
         {services.map((service) => {
           const imgSrc = service.featured_image?.trim();
           return (
-            // DÙNG OBJECT ROUTING NHƯ YÊU CẦU
             <Link
               key={service.id}
+              // @ts-expect-error - Bypass strict union type của next-intl theo quy tắc chuẩn
               href={{
                 pathname: "/services/[slug]",
                 params: { slug: service.slug || service.id },

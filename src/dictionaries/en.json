@@ -1,5 +1,6 @@
 {
   "Header": {
+    "home": "Home",
     "platform": "Platform",
     "analysis": "Analysis",
     "services": "Services",
@@ -21,5 +22,15 @@
     "latestInsights": "02. Latest Insights",
     "viewAllNews": "View All News",
     "recent": "Recent"
+  },
+  "Services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive analytical solutions engineered for precision.",
+    "price": "Starting from",
+    "duration": "Duration",
+    "backToList": "Back to Services",
+    "contactExpert": "Contact an Expert",
+    "notFound": "Service not found or currently unavailable.",
+    "seoDescription": "Explore our advanced greentech analysis services. We provide data-driven environmental insights, predictive carbon modeling, and sustainable consulting to help forward-thinking businesses optimize their ecological footprint and achieve net-zero goals with clinical precision."
   }
 }

@@ -1,5 +1,6 @@
 {
   "Header": {
+    "home": "Trang chủ",
     "platform": "Nền tảng",
     "analysis": "Phân tích",
     "services": "Dịch vụ",
@@ -21,5 +22,15 @@
     "latestInsights": "02. Tin tức Mới nhất",
     "viewAllNews": "Xem tất cả",
     "recent": "Gần đây"
+  },
+  "Services": {
+    "title": "Dịch Vụ Của Chúng Tôi",
+    "subtitle": "Các giải pháp phân tích toàn diện được thiết kế với độ chính xác cao.",
+    "price": "Giá từ",
+    "duration": "Thời gian",
+    "backToList": "Quay lại danh sách",
+    "contactExpert": "Liên hệ chuyên gia",
+    "notFound": "Không tìm thấy dịch vụ hoặc dịch vụ không khả dụng.",
+    "seoDescription": "Khám phá các dịch vụ phân tích công nghệ xanh tiên tiến của chúng tôi. Chúng tôi cung cấp các hiểu biết sâu sắc về môi trường dựa trên dữ liệu, mô hình carbon dự đoán và tư vấn bền vững để giúp các doanh nghiệp có tầm nhìn xa tối ưu hóa dấu ấn sinh thái và đạt được mục tiêu net-zero với độ chính xác cao."
   }
 }

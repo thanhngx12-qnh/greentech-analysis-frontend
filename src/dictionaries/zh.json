@@ -1,5 +1,6 @@
 {
   "Header": {
+    "home": "主页",
     "platform": "平台",
     "analysis": "分析",
     "services": "服务",
@@ -21,5 +22,15 @@
     "latestInsights": "02. 最新动态",
     "viewAllNews": "查看全部",
     "recent": "最近"
+  },
+  "Services": {
+    "title": "我们的服务",
+    "subtitle": "专为高精度设计的全面分析解决方案。",
+    "price": "起价",
+    "duration": "执行时间",
+    "backToList": "返回列表",
+    "contactExpert": "联系专家",
+    "notFound": "找不到该服务或当前不可用。",
+    "seoDescription": "探索我们先进的绿色科技分析服务。我们提供数据驱动的环境见解、预测性碳建模和可持续发展咨询，帮助富有远见的企業优化其生态足迹，并以高精度的临床水平实现净零排放目标。"
   }
 }

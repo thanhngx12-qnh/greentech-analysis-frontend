@@ -6,6 +6,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CursorAurora from "@/components/ui/CursorAurora";
 import { i18n, Locale } from "@/i18n-config";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -37,9 +39,15 @@ export default async function RootLayout({
 }) {
   const resolvedParams = await params;
 
+  // Kích hoạt nhận diện locale cho Server Components
+  setRequestLocale(resolvedParams.lang);
+
+  const messages = await getMessages();
+
   return (
     <html
       lang={resolvedParams.lang}
+      data-scroll-behavior="smooth"
       className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} scroll-smooth`}
     >
       <head>
@@ -49,13 +57,17 @@ export default async function RootLayout({
         />
       </head>
       <body className="antialiased selection:bg-primary-container selection:text-on-background min-h-screen flex flex-col">
-        <CursorAurora />
-        <Header lang={resolvedParams.lang} />
-        {/* FIX: Thêm Responsive Padding (px-margin-mobile md:px-margin-desktop) và Stack (pt-stack-md md:pt-stack-lg) */}
-        <main className="flex-1 pt-24 md:pt-stack-lg max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-stack-md md:pb-stack-lg flex flex-col gap-stack-md md:gap-stack-lg w-full overflow-x-hidden">
-          {children}
-        </main>
-        <Footer lang={resolvedParams.lang} />
+        <NextIntlClientProvider
+          locale={resolvedParams.lang}
+          messages={messages}
+        >
+          <CursorAurora />
+          <Header lang={resolvedParams.lang} />
+          <main className="flex-1 pt-24 md:pt-stack-lg max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-stack-md md:pb-stack-lg flex flex-col gap-stack-md md:gap-stack-lg w-full overflow-x-hidden">
+            {children}
+          </main>
+          <Footer lang={resolvedParams.lang} />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

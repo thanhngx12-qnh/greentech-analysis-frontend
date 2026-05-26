@@ -1,6 +1,6 @@
 // File: src/i18n-config.ts
 export const i18n = {
-  defaultLocale: "en",
+  defaultLocale: "vi",
   locales: ["vi", "en", "zh"],
 } as const;
 

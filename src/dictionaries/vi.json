@@ -1,0 +1,25 @@
+{
+  "Header": {
+    "platform": "Nền tảng",
+    "analysis": "Phân tích",
+    "services": "Dịch vụ",
+    "insights": "Kiến thức",
+    "login": "Đăng nhập",
+    "connectNow": "Kết nối ngay"
+  },
+  "Footer": {
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản dịch vụ",
+    "carbon": "Phương pháp Carbon",
+    "investor": "Quan hệ cổ đông",
+    "copyright": "© {year} Greentech Analysis. Chuẩn xác trong Bền vững."
+  },
+  "Home": {
+    "exploreNow": "Khám phá ngay",
+    "featuredServices": "01. Dịch vụ Nổi bật",
+    "viewDetail": "Xem chi tiết",
+    "latestInsights": "02. Tin tức Mới nhất",
+    "viewAllNews": "Xem tất cả",
+    "recent": "Gần đây"
+  }
+}

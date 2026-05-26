@@ -1,0 +1,25 @@
+{
+  "Header": {
+    "platform": "平台",
+    "analysis": "分析",
+    "services": "服务",
+    "insights": "洞察",
+    "login": "登录",
+    "connectNow": "立即联系"
+  },
+  "Footer": {
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "carbon": "碳排放方法论",
+    "investor": "投资者关系",
+    "copyright": "© {year} Greentech Analysis. 可持续发展的精确性。"
+  },
+  "Home": {
+    "exploreNow": "立即探索",
+    "featuredServices": "01. 特色服务",
+    "viewDetail": "查看详情",
+    "latestInsights": "02. 最新动态",
+    "viewAllNews": "查看全部",
+    "recent": "最近"
+  }
+}

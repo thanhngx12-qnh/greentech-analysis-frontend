@@ -13,24 +13,39 @@ export default async function HomePage({
   const resolvedParams = await params;
   const { lang } = resolvedParams;
 
-  // Fetch dữ liệu song song (Parallel Data Fetching) trên Server Component
-  // Nếu 1 API lỗi, bắt catch([]) để tránh làm sập toàn bộ trang chủ
+  // Gọi API và bắt lỗi chi tiết in ra Terminal để Debug
   const [sliders, services, news] = await Promise.all([
-    homeApi.getSliders(lang).catch(() => []),
-    homeApi.getFeaturedServices(lang).catch(() => []),
-    homeApi.getLatestNews(lang).catch(() => []),
+    homeApi.getSliders(lang).catch((err) => {
+      console.error("❌ Lỗi API Sliders:", err.message);
+      return [];
+    }),
+    homeApi.getFeaturedServices(lang).catch((err) => {
+      console.error("❌ Lỗi API Services:", err.message);
+      return [];
+    }),
+    homeApi.getLatestNews(lang).catch((err) => {
+      console.error("❌ Lỗi API News:", err.message);
+      return [];
+    }),
   ]);
+
+  // Log kiểm tra số lượng dữ liệu lấy được trên Terminal
+  console.log(`✅ Đã fetch dữ liệu trang chủ (Ngôn ngữ: ${lang}):`, {
+    sliders: sliders.length,
+    services: services.length,
+    news: news.length,
+  });
 
   return (
     <>
-      {/* Component 1: Hero Banner Slider */}
+      {/* HeroSlider vẫn cần lang vì đang dùng thẻ <a> thường */}
       <HeroSlider sliders={sliders} lang={lang} />
 
-      {/* Component 2: Danh sách Dịch vụ nổi bật */}
-      <FeaturedServices services={services} lang={lang} />
+      {/* Đã bỏ prop lang vì component mới dùng Object Routing của next-intl */}
+      <FeaturedServices services={services} />
 
-      {/* Component 3: Tin tức mới nhất */}
-      <LatestNews news={news} lang={lang} />
+      {/* Đã bỏ prop lang vì component mới dùng Object Routing của next-intl */}
+      <LatestNews news={news} />
     </>
   );
 }

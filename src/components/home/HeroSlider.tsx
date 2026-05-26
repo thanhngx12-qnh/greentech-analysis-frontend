@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Slider } from "@/lib/api";
+import { useTranslations } from "next-intl";
 
 interface HeroSliderProps {
   sliders: Slider[];
@@ -13,7 +14,7 @@ interface HeroSliderProps {
 
 export default function HeroSlider({ sliders, lang }: HeroSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const t = useTranslations("Home");
   const safeSliders = Array.isArray(sliders) ? sliders : [];
 
   useEffect(() => {
@@ -29,7 +30,6 @@ export default function HeroSlider({ sliders, lang }: HeroSliderProps) {
   const currentSlider = safeSliders[currentIndex];
   if (!currentSlider) return null;
 
-  // Kiểm tra ảnh hợp lệ (không null và không phải chuỗi rỗng)
   const imgSrc = currentSlider.image_desktop?.trim();
 
   return (
@@ -72,7 +72,7 @@ export default function HeroSlider({ sliders, lang }: HeroSliderProps) {
             href={currentSlider.link_url || "#"}
             className="btn-wipe border border-on-background px-8 py-4 font-body-lg text-body-lg text-on-background font-bold flex items-center gap-2"
           >
-            Explore Now
+            {t("exploreNow")}
             <span className="material-symbols-outlined text-primary">
               arrow_forward
             </span>
@@ -99,7 +99,6 @@ export default function HeroSlider({ sliders, lang }: HeroSliderProps) {
                 className="object-cover rounded-xl grayscale opacity-80 mix-blend-multiply"
               />
             ) : (
-              // Placeholder nếu không có ảnh
               <div className="w-full h-full bg-surface-variant/50 rounded-xl flex items-center justify-center border border-outline-variant border-dashed">
                 <span className="material-symbols-outlined text-outline text-6xl opacity-50">
                   image

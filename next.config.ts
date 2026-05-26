@@ -1,5 +1,9 @@
 // File: next.config.ts
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+// Khai báo đường dẫn đến file cấu hình next-intl vừa tạo
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   async rewrites() {
@@ -14,4 +18,5 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// Bọc nextConfig bằng plugin của next-intl
+export default withNextIntl(nextConfig);

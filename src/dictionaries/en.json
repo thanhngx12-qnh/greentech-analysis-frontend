@@ -1,0 +1,25 @@
+{
+  "Header": {
+    "platform": "Platform",
+    "analysis": "Analysis",
+    "services": "Services",
+    "insights": "Insights",
+    "login": "Login",
+    "connectNow": "Connect Now"
+  },
+  "Footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "carbon": "Carbon Methodology",
+    "investor": "Investor Relations",
+    "copyright": "© {year} Greentech Analysis. Precision in Sustainability."
+  },
+  "Home": {
+    "exploreNow": "Explore Now",
+    "featuredServices": "01. Featured Services",
+    "viewDetail": "View Detail",
+    "latestInsights": "02. Latest Insights",
+    "viewAllNews": "View All News",
+    "recent": "Recent"
+  }
+}
